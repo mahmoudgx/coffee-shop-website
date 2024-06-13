@@ -17,7 +17,9 @@ const App = () => {
       <AboutUs />
       <SpecialMenu />
       <DiscountBanner />
-      <Footer />
+      <div className="pt-10">
+        <Footer />
+      </div>
     </>
   );
 };

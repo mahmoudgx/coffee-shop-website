@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { CiShoppingCart } from "react-icons/ci";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const PopularNow = () => {
   const [selectedOptions, setSelectedOptions] = useState({
@@ -15,6 +17,8 @@ const PopularNow = () => {
     }));
   };
 
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
   return (
     <>
       <h1 className="md:p-10 py-5 md:text-3xl text-2xl text-center font-bold">
@@ -23,9 +27,17 @@ const PopularNow = () => {
           Now
         </span>
       </h1>
-      <div className="md:p-10 grid md:grid-cols-3 md:gap- p-5  gap-5 grid-cols-1 items-center">
+      <div
+        ref={ref}
+        className="md:p-10 grid md:grid-cols-3 md:gap-10 p-5 gap-5 grid-cols-1 items-center"
+      >
         {/* Vanilla Latte */}
-        <div className="  border-4 rounded-xl md:h-[450px] overflow-hidden border-red-300">
+        <motion.div
+          className="border-4 rounded-xl md:h-[450px] overflow-hidden border-red-300"
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
           <div className="bg-white space-y-5 p-5">
             <img
               className="rounded-lg"
@@ -63,10 +75,15 @@ const PopularNow = () => {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Espresso */}
-        <div className="  border-4 rounded-xl md:h-[450px] overflow-hidden border-red-300">
+        <motion.div
+          className="border-4 rounded-xl md:h-[450px] overflow-hidden border-red-300"
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
           <div className="bg-white space-y-5 p-5">
             <img
               className="rounded-lg"
@@ -104,10 +121,15 @@ const PopularNow = () => {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Hazelnut Latte */}
-        <div className=" rounded-xl md:h-[450px] overflow-hidden border-4 border-red-300">
+        <motion.div
+          className="rounded-xl md:h-[450px] overflow-hidden border-4 border-red-300"
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
           <div className="bg-white space-y-5 p-5">
             <img
               className="rounded-lg"
@@ -145,7 +167,7 @@ const PopularNow = () => {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );
