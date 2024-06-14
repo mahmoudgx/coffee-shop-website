@@ -8,7 +8,7 @@ const AboutUs: React.FC = () => {
   return (
     <div
       ref={ref}
-      className="flex flex-col items-center md:flex-row md:items-center bg-[#f8ede3] md:px-20 px-5 py-10 overflow-hidden" // Adjust padding and ensure overflow is hidden
+      className="flex flex-col items-center md:flex-row md:items-center bg-[#f8ede3] md:px-20 px-5 py-10 overflow-hidden max-w-full" // Added max-w-full
     >
       <motion.div
         className="w-full md:w-1/2 h-full flex justify-center mb-4 md:mb-0 relative"

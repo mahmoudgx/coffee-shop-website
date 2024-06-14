@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -7,7 +8,7 @@ const Hero = () => {
   return (
     <div
       ref={ref}
-      className="bg-[#F6EBDA] grid md:grid-cols-2 grid-cols-1 h-full p-5 items-center space-y-5 md:p-[5rem]"
+      className="bg-[#F6EBDA] grid md:grid-cols-2 grid-cols-1 h-full p-5 items-center space-y-5 md:p-[5rem] overflow-hidden" // Ensure overflow is hidden
     >
       <motion.div
         className="md:space-y-5 space-y-2"
@@ -35,7 +36,7 @@ const Hero = () => {
         </div>
       </motion.div>
       <motion.div
-        className="md:w-[400px] md:place-self-end md:h-[400px] w-[250px] h-[250px] rounded-full shadow-md shadow-black relative mx-auto md:mx-0"
+        className="md:w-[400px] md:place-self-end md:h-[400px] w-[250px] h-[250px] rounded-full shadow-md shadow-[#FE9F47] relative mx-auto md:mx-0"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={inView ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.8 }}
@@ -54,6 +55,7 @@ const Hero = () => {
           <img
             src="https://www.svgrepo.com/show/530622/milk-tea.svg"
             alt="18k"
+            className="w-full h-auto"
           />
         </motion.div>
         <motion.div
@@ -65,6 +67,7 @@ const Hero = () => {
           <img
             src="https://www.svgrepo.com/show/530623/ice-cream.svg"
             alt="Cappuccino"
+            className="w-full h-auto"
           />
         </motion.div>
         <motion.div
@@ -76,6 +79,7 @@ const Hero = () => {
           <img
             src="https://www.svgrepo.com/show/530624/coconut-tree.svg"
             alt="Cappuccino"
+            className="w-full h-auto"
           />
         </motion.div>
       </motion.div>
